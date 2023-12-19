@@ -14,6 +14,7 @@ function AuthProvider(props: Props) {
   const { children } = props
 
   const [user, setUser] = useState<User>()
+  const [cid, setCid] = useState<number>(1)
   const [loadingUserData, setLoadingUserData] = useState(true)
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -84,6 +85,8 @@ function AuthProvider(props: Props) {
     <AuthContext.Provider
       value={{
         isAuthenticated,
+        cid,
+        setCid,
         user,
         loadingUserData,
         signIn,

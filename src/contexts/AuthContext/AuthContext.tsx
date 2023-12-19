@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios'
-import { createContext } from 'react'
+import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
 export type User = {
   email: string
@@ -14,8 +14,10 @@ export type SignInCredentials = {
 
 export type AuthContextData = {
   user?: User
+  cid?: number
   isAuthenticated: boolean
   loadingUserData: boolean
+  setCid: Dispatch<SetStateAction<number>>
   signIn: (credentials: SignInCredentials) => Promise<void | AxiosError>
   signOut: () => void
 }
